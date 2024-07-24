@@ -34,8 +34,8 @@ async def async_setup_entry(
     entities = [
         WebUntisNextClassSensor(server),
         WebUntisNextLessonToWakeUpSensor(server),
-        WebUntisToayStart(server),
-        WebUntisToayEnd(server),
+        WebUntisTodayStart(server),
+        WebUntisTodayEnd(server),
     ]
 
     # Add sensor entities.
@@ -113,7 +113,7 @@ class WebUntisNextLessonToWakeUpSensor(WebUntisSensorEntity):
         self._attr_extra_state_attributes = {"day": self._server.next_day_json}
 
 
-class WebUntisToayStart(WebUntisSensorEntity):
+class WebUntisTodayStart(WebUntisSensorEntity):
     """Representation of a Web Untis Today start sensor."""
 
     unit: Optional[str] = None
@@ -134,7 +134,7 @@ class WebUntisToayStart(WebUntisSensorEntity):
         self._attr_native_value = self._server.today[0]
 
 
-class WebUntisToayEnd(WebUntisSensorEntity):
+class WebUntisTodayEnd(WebUntisSensorEntity):
     """Representation of a Web Untis Today end sensor."""
 
     unit: Optional[str] = None
